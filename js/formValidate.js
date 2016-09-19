@@ -1,4 +1,4 @@
-/* Developed by Sivakumar S Nair */
+/* Developed by Sivakumar S */
 
 (function($) {
 
