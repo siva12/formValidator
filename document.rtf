@@ -1,0 +1,74 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 HelveticaNeue;\f2\fnil\fcharset0 Consolas;
+}
+{\colortbl;\red255\green255\blue255;\red38\green38\blue38;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh14080\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs72 \cf0 \ul \ulc0 Form Validate Notes.\
+
+\b0\fs24 \ulnone \
+
+\fs48 \ul Protecting the $ Alias and Adding Scope
+\fs24 \ulnone \
+\
+
+\fs28 The $ variable is very popular among JavaScript libraries, and if you're using another library with jQuery, you will have to make jQuery not use the $ with jQuery.noConflict(). However, this will break our plugin since it is written with the assumption that $ is an alias to the jQuery function. To work well with other plugins, and still use the jQuery $ alias, we need to put all of our code inside of an Immediately Invoked Function Expression, and then pass the function jQuery, and name the parameter $:\
+\
+\pard\pardeftab720\sl450\partightenfactor0
+
+\f1\fs30 \cf2 \expnd0\expndtw0\kerning0
+The 
+\f2\fs26 jQuery.fn.extend()
+\f1\fs30  method extends the jQuery prototype (
+\f2\fs26 $.fn
+\f1\fs30 ) object to provide new methods that can be chained to the 
+\f2\fs26 jQuery()
+\f1\fs30  function.\
+\
+Settings using extend function\
+\
+\ul Default Values\
+\ulnone 1) attribute: \'93formValidate\'94\ul \
+	\ulnone If form is having data- formValidate then whole fields inside form get validated. \
+	If you restrict any fields inside the form set data-noValidate for that field.\
+	If you need only some fields to get validate the please add data-formValidate to that field only\
+	You can give any name for \cf2 formValidate or noValidate\cf2 . But please make sure that you supplied the same name with \'93data-\'93 attribute to the form tag or fields which you need to validate or not to validate.\
+	\
+\
+2) defaultErrorClass: \'93error\'94\
+	You can give any name here and that will the default class for the error message and that particular field. \
+	The default error class is \'93error\'94. If its empty then no class will be supplied to that field or error message.\
+\
+3) trigger: \'93blur\'94, \'93focus\'94, \cf2 \'93blur, focus\'94\cf2 \
+	This is to trigger validation in which event.\
+	Supported events are blur and focus or both. If you need both events please give both events eg: trigger: \'93blur, focus\'94 with or without space after comma. \
+	If you don\'92t need to trigger this on any event keep this empty like trigger : \'93\'94\
+\
+4) scroll - true, false\
+	If this set to true the page will automatically scroll to first error field and set focus.\
+	If this set to false nothing will happen\
+	Default value is true\
+\
+5) hideErrorOnChange - true, false\
+	Set true to hide error message on change\
+	Default is true\
+6) assyncPattern - url\
+	Validate with the value which we get from this url\
+	Keep empty if you don\'92t need this.\
+\
+7) ajax - true, false \
+	make this true if form or fields are loading through ajax.\
+	Default value is false\
+\
+8) defaultMessage - This field is required.\
+	Validation message\
+\
+9) defaultEmailMessage  Please enter a valid email address.\
+	Email validation message.\
+\
+10) defaultNumberMessage Please enter a valid number\
+	Number message \
+11) \
+\
+}
